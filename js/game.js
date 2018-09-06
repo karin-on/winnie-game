@@ -82,6 +82,10 @@ function Game() {
             this.hideVisibleWinnie();
             this.hideVisibleHoney();
             clearInterval(this.idInterval);
+
+            let overScore = document.querySelector('#over-score');
+            overScore.innerText = this.score;
+
             let over = document.querySelector('#over');
             over.classList.remove('invisible');
         }
