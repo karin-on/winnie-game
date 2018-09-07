@@ -23,5 +23,5 @@ It's time for a little something! 🍯 Help Winnie the Pooh eat some honey by mo
 
 ## Previews
 
-![winnie-game_prev1](./images/winnie-game_prev1.png) ![winnie-game_prev2](./images/winnie-game_prev2.png)
+ ![winnie-game_prev1](./images/winnie-game_prev1.png)   ![winnie-game_prev2](./images/winnie-game_prev2.png)
 
