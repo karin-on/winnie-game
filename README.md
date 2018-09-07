@@ -6,6 +6,24 @@ It's time for a little something! 🍯 Help Winnie the Pooh eat some honey by mo
 
 
 
+## Getting Started
+
+To run this project you need to have **Node.js** and **Webpack** installed on your local machine. After forking and cloning the repo please run these commands in your command line:
+
+```
+npm install
+```
+
+and
+
+```
+npm start
+```
+
+Then open the **.html** file in your browser.
+
+
+
 ## Tools
 
 - JavaScript
@@ -17,7 +35,7 @@ It's time for a little something! 🍯 Help Winnie the Pooh eat some honey by mo
 
 ## Demo
 
-#### [Winnie the Pooh Game](https://karin-on.github.io/winnie-game/)
+### [Winnie the Pooh Game](https://karin-on.github.io/winnie-game/)
 
 
 
