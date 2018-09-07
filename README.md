@@ -1,7 +1,5 @@
 # Winnie the Pooh Game
 
-(this is work in progress)
-
 It's time for a little something! 🍯 Help Winnie the Pooh eat some honey by moving the bear on the board with arrows on your keyboard: ↑ ↓ ← →
 
 
