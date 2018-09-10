@@ -96,7 +96,7 @@ function Game() {
 
         this.idInterval = setInterval(() => {
             self.moveWinnie();
-        }, 500)
+        }, 400)
     }
 }
 
