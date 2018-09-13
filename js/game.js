@@ -1,35 +1,43 @@
 import {Winnie} from "./winnie";
 import {Honey} from "./honey";
 
-function Game() {
-    this.board = document.querySelector('#board').querySelectorAll('div');
-    this.winnie = new Winnie();
-    this.honey = new Honey();
-    this.score = 0;
-    this.scoreDisplay = document.querySelector('#score').querySelector('strong');
-    this.on = true;
 
-    this.index = function (x, y) {
+class Game {
+    constructor() {
+        this.board = document.querySelector('#board').querySelectorAll('div');
+        this.winnie = new Winnie();
+        this.honey = new Honey();
+        this.score = 0;
+        this.scoreDisplay = document.querySelector('#score').querySelector('strong');
+        this.on = true;
+    }
+
+    index(x, y) {
         return x + (10 * y);
     }
 
-    this.showWinnie = function () {
+    showWinnie() {
         this.hideVisibleWinnie();
         this.board[this.index(this.winnie.x, this.winnie.y)].classList.add('winnie');
     }
 
-    this.hideVisibleWinnie = function () {
+    hideVisibleWinnie() {
         let visibleWinnie = document.querySelector('.winnie');
         if (visibleWinnie) {
             visibleWinnie.classList.remove('winnie');
         }
     }
 
-    this.showHoney = function () {
+    showHoney() {
         this.board[this.index(this.honey.x, this.honey.y)].classList.add('honey');
     }
 
-    this.turnWinnie = function (event) {
+    hideVisibleHoney() {
+        let hideVisibleHoney = document.querySelector('.honey');
+        hideVisibleHoney.classList.remove('honey');
+    }
+
+    turnWinnie(event) {
         if (event.which === 37) {
             this.winnie.direction = 'left';
         } else if (event.which === 38) {
@@ -41,7 +49,7 @@ function Game() {
         }
     }
 
-    this.moveWinnie = function () {
+    moveWinnie() {
         if (this.winnie.direction === "right") {
             this.winnie.x += 1;
         } else if (this.winnie.direction === "left") {
@@ -60,7 +68,7 @@ function Game() {
         this.showWinnie();
     }
 
-    this.checkHoneyCollision = function () {
+    checkHoneyCollision() {
         if (this.winnie.x === this.honey.x && this.winnie.y === this.honey.y) {
             let visibleHoney = document.querySelector('.honey');
             visibleHoney.classList.remove('honey');
@@ -71,12 +79,7 @@ function Game() {
         }
     }
 
-    this.hideVisibleHoney = function () {
-        let hideVisibleHoney = document.querySelector('.honey');
-        hideVisibleHoney.classList.remove('honey');
-    }
-
-    this.gameOver = function () {
+    gameOver() {
         if (this.winnie.x < 0 || this.winnie.x > 9 || this.winnie.y < 0 || this.winnie.y > 9) {
             this.on = false;
             this.hideVisibleWinnie();
@@ -91,7 +94,7 @@ function Game() {
         }
     }
 
-    this.startGame = function () {
+    startGame() {
         let self = this;
 
         this.idInterval = setInterval(() => {
