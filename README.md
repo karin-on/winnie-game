@@ -24,7 +24,7 @@ Then open the **.html** file in your browser.
 
 ## Tools
 
-- JavaScript
+- JavaScript (ES6)
 - CSS
 - HTML
 - Webpack
