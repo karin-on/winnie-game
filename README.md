@@ -6,7 +6,7 @@ It's time for a little something! 🍯 Help Winnie the Pooh eat some honey by mo
 
 ## Getting Started
 
-To run this project you need to have **Node.js** and **Webpack** installed on your local machine. After forking and cloning the repo please run these commands in your command line:
+To run this project you need to have **Node.js** installed on your local machine. After forking and cloning the repo please run these commands in your command line:
 
 ```
 npm install
@@ -18,7 +18,7 @@ and
 npm start
 ```
 
-Then open the **.html** file in your browser.
+Then open the **index.html** file in your browser.
 
 
 
