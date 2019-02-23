@@ -10,6 +10,7 @@ class Game {
         this.score = 0;
         this.scoreDisplay = document.querySelector('#score').querySelector('strong');
         this.on = true;
+        this.speed = 400;
     }
 
     index(x, y) {
@@ -22,7 +23,7 @@ class Game {
     }
 
     hideVisibleWinnie() {
-        let visibleWinnie = document.querySelector('.winnie');
+        const visibleWinnie = document.querySelector('.winnie');
         if (visibleWinnie) {
             visibleWinnie.classList.remove('winnie');
         }
@@ -64,15 +65,16 @@ class Game {
         if (!this.on) {
             return;
         }
+        this.speedUp();
         this.checkHoneyCollision();
         this.showWinnie();
     }
 
     checkHoneyCollision() {
         if (this.winnie.x === this.honey.x && this.winnie.y === this.honey.y) {
-            let visibleHoney = document.querySelector('.honey');
+            const visibleHoney = document.querySelector('.honey');
             visibleHoney.classList.remove('honey');
-            this.score += 1;
+            this.score++;
             this.scoreDisplay.innerText = this.score;
             this.honey = new Honey();
             this.showHoney();
@@ -86,20 +88,53 @@ class Game {
             this.hideVisibleHoney();
             clearInterval(this.idInterval);
 
-            let overScore = document.querySelector('#over-score');
+            const overScore = document.querySelector('#over-score');
             overScore.innerText = this.score;
 
-            let over = document.querySelector('#over');
+            const over = document.querySelector('#over');
             over.classList.remove('invisible');
         }
     }
 
-    startGame() {
-        let self = this;
+    speedUp() {
+        if (this.score >= 30) {
+            clearInterval(this.idInterval);
+            this.speed = 100;
+        }
+
+        if (this.score !== 0 && this.score % 5 === 0) {
+            clearInterval(this.idInterval);
+            this.speed = this.speed - 50;
+        }
 
         this.idInterval = setInterval(() => {
-            self.moveWinnie();
-        }, 400)
+            this.moveWinnie();
+            console.log(this.speed);
+        }, this.speed);
+
+        // if (this.score === 3) {
+        //     clearInterval(this.idInterval);
+        //
+        //     this.idInterval = setInterval(() => {
+        //         this.moveWinnie();
+        //         console.log('350');
+        //     }, 350);
+        // }
+        //
+        // if (this.score === 5) {
+        //     clearInterval(this.idInterval);
+        //
+        //     this.idInterval = setInterval(() => {
+        //         this.moveWinnie();
+        //         console.log('300');
+        //     }, 300);
+        // }
+    }
+
+    startGame() {
+        this.idInterval = setInterval(() => {
+            this.moveWinnie();
+        }, this.speed);
     }
 }
 

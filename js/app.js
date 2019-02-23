@@ -2,7 +2,7 @@ import {Game} from "./game";
 
 document.addEventListener("DOMContentLoaded", function () {
 
-    let again = document.querySelector('#play-again');
+    const again = document.querySelector('#play-again');
     again.addEventListener('click', function () {
         window.location.reload();
     });
@@ -11,9 +11,8 @@ document.addEventListener("DOMContentLoaded", function () {
         game.turnWinnie(event);
     });
 
-    let game = new Game();
+    const game = new Game();
     game.showWinnie();
     game.showHoney();
     game.startGame();
-
 });
