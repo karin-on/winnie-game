@@ -31,6 +31,16 @@ Then open the **index.html** file in your browser.
 
 
 
+## Features
+
+The game is pretty simple:
+
+- if the bear hits the honey, you get a point,
+- if the bear hits a wall, game is over,
+- watch out!, the bear **speeds up** while eating more and more honey.
+
+
+
 ## Demo
 
 ### [Winnie the Pooh Game](https://karin-on.github.io/winnie-game/)
