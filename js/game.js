@@ -81,6 +81,19 @@ class Game {
         }
     }
 
+    speedUp() {
+        const scoreBreakPoints = [10, 20, 30, 40, 50];
+        const speeds = [350, 300, 250, 200, 150];
+
+        scoreBreakPoints.forEach((el,i) => {
+            if (this.score === el) {
+                clearInterval(this.idInterval);
+                this.speed = speeds[i];
+                this.startGame();
+            }
+        });
+    }
+
     gameOver() {
         if (this.winnie.x < 0 || this.winnie.x > 9 || this.winnie.y < 0 || this.winnie.y > 9) {
             this.on = false;
@@ -94,41 +107,6 @@ class Game {
             const over = document.querySelector('#over');
             over.classList.remove('invisible');
         }
-    }
-
-    speedUp() {
-        if (this.score >= 30) {
-            clearInterval(this.idInterval);
-            this.speed = 100;
-        }
-
-        if (this.score !== 0 && this.score % 5 === 0) {
-            clearInterval(this.idInterval);
-            this.speed = this.speed - 50;
-        }
-
-        this.idInterval = setInterval(() => {
-            this.moveWinnie();
-            console.log(this.speed);
-        }, this.speed);
-
-        // if (this.score === 3) {
-        //     clearInterval(this.idInterval);
-        //
-        //     this.idInterval = setInterval(() => {
-        //         this.moveWinnie();
-        //         console.log('350');
-        //     }, 350);
-        // }
-        //
-        // if (this.score === 5) {
-        //     clearInterval(this.idInterval);
-        //
-        //     this.idInterval = setInterval(() => {
-        //         this.moveWinnie();
-        //         console.log('300');
-        //     }, 300);
-        // }
     }
 
     startGame() {
